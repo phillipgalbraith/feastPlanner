@@ -42,7 +42,7 @@ const StyledDashboard = styled.div`
   }
 `;
 
-const myPotlucks = [
+const myFeasts = [
   {
     meetingId: "11",
     meetingName: "Foodapaloosa",
@@ -109,7 +109,7 @@ const getConfirmedText = (confirmed) => {
   return confirmed? "Cancel Confirmation?" : "Confirm You're Going!"
 }
 
-const initialUserData = myPotlucks.map( p => {
+const initialUserData = myFeasts.map( p => {
   const currentUser = p.people.find( p => p.username === userLoggedIn);
   return { 
     username: currentUser.username,
@@ -124,7 +124,7 @@ const initialUserData = myPotlucks.map( p => {
 const Dashboard = () => {
 
   //state
-  const [myPotluckData, setMyPotluckData] = useState(myPotlucks);
+  const [myFeastData, setMyFeastData] = useState(myFeasts);
   const [userData, setUserData] = useState(initialUserData);
   const [hidden, setHidden] = useState(true);
   const [detailsClass, setDetailsClass] = useState("");
@@ -135,12 +135,12 @@ const Dashboard = () => {
         username: u.username,
         item: u.item,
         id: u.id,
-        confirmedText: getConfirmedText(myPotluckData.find(p => p.meetingId === u.id).people.find( p => p.username === u.username).confirmed)
+        confirmedText: getConfirmedText(myFeastData.find(p => p.meetingId === u.id).people.find( p => p.username === u.username).confirmed)
       }
     })
     
     setUserData(newUserData);
-  }, [myPotluckData]);
+  }, [myFeastData]);
 
   useEffect(() => {
     hidden ? setDetailsClass("") : setDetailsClass("hidden");
@@ -160,17 +160,17 @@ const Dashboard = () => {
 
   const changeItem = (e) => {
     e.preventDefault();
-    const currentPotluck = myPotluckData.find( p => p.meetingId === e.target.name)
-    const currPotIdx = myPotluckData.indexOf(currentPotluck);
-    const currentUser = currentPotluck.people.find( p => p.username === userLoggedIn)
-    const currUsrIdx = currentPotluck.people.indexOf(currentUser);
-    let newPotluckData = [...myPotluckData];
+    const currentFeast = myFeastData.find( p => p.meetingId === e.target.name)
+    const currPotIdx = myFeastData.indexOf(currentFeast);
+    const currentUser = currentFeast.people.find( p => p.username === userLoggedIn)
+    const currUsrIdx = currentFeast.people.indexOf(currentUser);
+    let newFeastData = [...myFeastData];
     const selectedItem = userData.find( i => i.id === e.target.name).item;
-    newPotluckData[currPotIdx]["people"][currUsrIdx]["item"] = selectedItem;
+    newFeastData[currPotIdx]["people"][currUsrIdx]["item"] = selectedItem;
     
-    setMyPotluckData(newPotluckData);    
+    setMyFeastData(newFeastData);    
     
-    axios.post('https://reqres.in/api/users', myPotluckData)
+    axios.post('https://reqres.in/api/users', myFeastData)
     .then(function (response) {
       console.log(response);
     })
@@ -181,25 +181,25 @@ const Dashboard = () => {
   
   const changeConfirmed = (e) => {
     e.preventDefault();
-    const currentPotluck = myPotluckData.find( p => p.meetingId === e.target.name)
-    const currPotIdx = myPotluckData.indexOf(currentPotluck);
-    const currentUser = currentPotluck.people.find( p => p.username === userLoggedIn)
-    const currUsrIdx = currentPotluck.people.indexOf(currentUser);
-    let newPotluckData = [...myPotluckData];
-    const currConfirmed = newPotluckData[currPotIdx]["people"][currUsrIdx]["confirmed"];
-    newPotluckData[currPotIdx]["people"][currUsrIdx]["confirmed"] = !currConfirmed;
-    return setMyPotluckData(newPotluckData);
+    const currentFeast = myFeastData.find( p => p.meetingId === e.target.name)
+    const currPotIdx = myFeastData.indexOf(currentFeast);
+    const currentUser = currentFeast.people.find( p => p.username === userLoggedIn)
+    const currUsrIdx = currentFeast.people.indexOf(currentUser);
+    let newFeastData = [...myFeastData];
+    const currConfirmed = newFeastData[currPotIdx]["people"][currUsrIdx]["confirmed"];
+    newFeastData[currPotIdx]["people"][currUsrIdx]["confirmed"] = !currConfirmed;
+    return setMyFeastData(newFeastData);
   }
   
   useEffect ( () => {  
-    axios.post('https://reqres.in/api/users', myPotluckData)
+    axios.post('https://reqres.in/api/users', myFeastData)
     .then(function (response) {
       console.log(response);
     })
     .catch(function (error) {
       console.log(error);
     })}
-  , [myPotluckData])
+  , [myFeastData])
 
 
   return (
@@ -207,16 +207,16 @@ const Dashboard = () => {
       <h1 className="pageTitle">{`${userLoggedIn}`}'s Dashboard</h1>
       
       <Link to="/feast/create">
-        <button className="newPotLuck-button">Create New Potluck</button>
+        <button className="newPotLuck-button">Create New Feast</button>
       </Link>
       
-      <h2>My Potlucks</h2>
+      <h2>My Feasts</h2>
 
-      <section id="myPotlucks" className="mtg-container">
+      <section id="myFeasts" className="mtg-container">
       
           {
            
-            myPotluckData.map( feast => {
+            myFeastData.map( feast => {
               return (
 
               <div className="meeting" key={`meeting ${feast["meetingId"]}`} name={feast.meetingId}>
