@@ -5,7 +5,7 @@ import CoverPage from "./components/CoverPage";
 import CreateFeastPage from "./components/CreateFeastPage";
 import Logout from "./components/Logout";
 import Login from "./components/Login";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./components/Dashboard/Dashboard";
 import NavBar from "./components/NavBar";
 
 import Signup from "./components/Signup";

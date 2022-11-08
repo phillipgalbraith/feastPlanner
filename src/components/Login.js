@@ -32,7 +32,6 @@ const Login = () => {
     const { name, value } = e.target;
     setLoginValues({ ...loginValues, [name]: value })
     validate(name, value);
-    console.log(e.target.name)
   }
 
   const onSubmit = (e) => {
