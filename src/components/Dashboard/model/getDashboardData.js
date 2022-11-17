@@ -1,4 +1,4 @@
-import axios from "axios";
+import axiosWithAuth from "../../../utils/axiosWithAuth";
 
 export const getNewFeastItem = (e, myFeastData, userData, userLoggedIn) => {
     
@@ -11,13 +11,14 @@ export const getNewFeastItem = (e, myFeastData, userData, userLoggedIn) => {
     newFeastData[currPotIdx]["people"][currUsrIdx]["item"] = selectedItem;
     
     
-    axios.post('https://reqres.in/api/users', newFeastData)
-    .then(function (response) {
-      console.log({response});
-    })
-    .catch(function (error) {
-      console.log({error});
-    });
+    axiosWithAuth
+      .post('/meetings', newFeastData)
+      .then(function (response) {
+        console.log({response});
+      })
+      .catch(function (error) {
+        console.log({error});
+      });
 
     return newFeastData
 }
@@ -31,7 +32,7 @@ export const getNewFeastConfirmed = (e, myFeastData, userData, userLoggedIn) => 
   const currConfirmed = newFeastData[currPotIdx]["people"][currUsrIdx]["confirmed"];
   newFeastData[currPotIdx]["people"][currUsrIdx]["confirmed"] = !currConfirmed;
 
-  axios.post('https://reqres.in/api/users', newFeastData)
+  axiosWithAuth.post('/meetings/', newFeastData)
   .then(function (response) {
     console.log({response});
   })

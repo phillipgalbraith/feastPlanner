@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 //axios is here for  now until we make axiosWithAuth()
-import axios from "axios";
+import axiosWithAuth from "../utils/axiosWithAuth";
 import styled from "styled-components";
 
 const StyledCreatePage = styled.div`
@@ -35,11 +35,11 @@ const CreateFeastPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // axiosWithAuth()
-    //   .post("/api/events", feastValues)
-    //   .then((resp) => {
-    //     console.log(resp.data);
-    //   });
+    axiosWithAuth()
+      .post("/api/meetings", feastValues)
+      .then((resp) => {
+        console.log(resp.data);
+      });
     push("/dashboard");
   };
   const handleChange = (e) => {

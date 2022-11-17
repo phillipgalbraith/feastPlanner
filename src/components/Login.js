@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import formSchema from "./Validation/LoginFormSchema";
 import * as yup from 'yup';
 import { Link, Route } from "react-router-dom";
@@ -15,11 +16,13 @@ const initialFormErrors = {
   password: ''
 };
 
-const Login = () => {
+export default function Login () {
+  const {push} = useHistory();
   //const { username, password } = props.values;
   const [loginValues, setLoginValues] = useState(initialLoginValues)
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(true);
+  const [hasFailed, setHasFailed] = useState(false);
 
   const validate = (name, value) => {
     yup.reach(formSchema, name)
@@ -34,13 +37,38 @@ const Login = () => {
     validate(name, value);
   }
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
+    const data = await getUserData();
+    if(data?Object.keys(data).includes("token"):false ){
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('user_id', data.user_id);
+      
+      push("/dashboard");
+    }
   }
+  const getUserData = () => {
+    console.log()
+    const user = {
+      username: loginValues.username,
+      password: loginValues.username
+    }
+    return axios
+      .post(`${process.env.REACT_APP_API_URI}/auth/login`, user)
+      .then(resp => {
+        console.log({resp})
+        return resp.data;
+      })
+      .catch(err => {
+        console.error({err});
+        setHasFailed(true);
+      });
+  };
 
   useEffect(() => {
     formSchema.isValid(loginValues).then(valid => setDisabled(!valid))
   }, [loginValues])
+
   return (
   <section>
 
@@ -70,8 +98,11 @@ const Login = () => {
             onChange={handleChange}
           />
         </label>
-        <button disabled={disabled}>Submit</button>  
-        
+        <button disabled={disabled}>Submit</button>
+        { disabled && <li>username and password required</li>}
+  
+        { hasFailed && <li>login has failed</li>}
+
         <Link to='/signup'>
           <button>Signup</button>
         </Link>
@@ -83,5 +114,3 @@ const Login = () => {
   </section>
   );
 };
-
-export default Login;
