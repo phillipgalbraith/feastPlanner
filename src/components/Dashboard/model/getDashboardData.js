@@ -1,4 +1,3 @@
-import axiosWithAuth from "../../../utils/axiosWithAuth";
 
 export const getNewFeastItem = (e, myFeastData, userData, userLoggedIn) => {
     
@@ -10,16 +9,6 @@ export const getNewFeastItem = (e, myFeastData, userData, userLoggedIn) => {
     const selectedItem = userData.find( i => i.id === e.target.name).item;
     newFeastData[currPotIdx]["people"][currUsrIdx]["item"] = selectedItem;
     
-    
-    axiosWithAuth
-      .post('/meetings', newFeastData)
-      .then(function (response) {
-        console.log({response});
-      })
-      .catch(function (error) {
-        console.log({error});
-      });
-
     return newFeastData
 }
 
@@ -31,14 +20,5 @@ export const getNewFeastConfirmed = (e, myFeastData, userData, userLoggedIn) => 
   let newFeastData = [...myFeastData];
   const currConfirmed = newFeastData[currPotIdx]["people"][currUsrIdx]["confirmed"];
   newFeastData[currPotIdx]["people"][currUsrIdx]["confirmed"] = !currConfirmed;
-
-  axiosWithAuth.post('/meetings/', newFeastData)
-  .then(function (response) {
-    console.log({response});
-  })
-  .catch(function (error) {
-    console.log({error});
-  });
-
   return newFeastData
 }
