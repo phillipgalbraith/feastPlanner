@@ -9,7 +9,7 @@ export const myInitialFeasts = [
         {username:"Phil2", item: "ratatouille", role: "guest", confirmed: false}
       ],
       items: ["spaghetti", "cookies", "biscuits", "pretzels", "ratatouille", "soda", "crackers", "cookies" ],
-      date: "people/19/2021",
+      date: "01/19/2021",
       time: "12PM-1PM",
       location: "McArthur Park",
       confirmed: false
@@ -24,8 +24,8 @@ export const myInitialFeasts = [
         {username:"Phil2", item: "turkey", role: "organizer", confirmed: false}
       ],
       items: ["turkey","chowder","bread bowls","apricots", "ratatouille", "soda", "crackers", "cookies" ],
-      date: "people/26/2021",
-      time: "peopleAM-12PM",
+      date: "01/26/2021",
+      time: "11AM-12PM",
       location: "BJHS staff lounge",
       confirmed: false
     },
@@ -39,8 +39,8 @@ export const myInitialFeasts = [
         {username:"Phil2", item: "turkey", role: "organizer", confirmed: false}
       ],
       items: [ "turkey","chowder","bread bowls","apricots", "ratatouille", "soda", "crackers", "cookies" ],
-      date: "people/26/2021",
-      time: "peopleAM-12PM",
+      date: "01/26/2021",
+      time: "11AM-12PM",
       location: "AquaDuckies staff lounge",
       confirmed: false,
     },
@@ -54,8 +54,8 @@ export const myInitialFeasts = [
         {username:"Sal123", item: "chowder", role: "guest", confirmed: false}
       ],
       items: [ "turkey","chowder","bread bowls","apricots","ratatouille", "soda", "crackers", "cookies" ],
-      date: "people/26/2021",
-      time: "peopleAM-12PM",
+      date: "01/26/2021",
+      time: "11AM-12PM",
       location: "BJHS staff lounge",
       confirmed: false,
     }

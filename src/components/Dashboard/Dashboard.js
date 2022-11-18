@@ -94,16 +94,17 @@ const Dashboard = () => {
   return (
 
     <StyledDashboard>
-      <h1 className="pageTitle">{`${userLoggedIn}`}'s Dashboard</h1>
-      
+      <h1 className="pageTitle">
+        {`${userLoggedIn}`}'s Feasts
+       
+      </h1>
       <Link to="/feast/create">
-        <button className="newFeast-button">Create New Feast</button>
+          <button className="card-button"> + Plan Feast</button>
       </Link>
+    
       
-      <h2 id="cardContainerTitle">My Feasts</h2>
-
       <section id="cardContainer" className="mtg-container">
-      
+    
           {   
             myFeastData.map( feast => {
               return (<FeastCard feast={feast} props={feastCardProps}/>);

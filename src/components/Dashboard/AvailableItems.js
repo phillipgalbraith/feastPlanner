@@ -12,6 +12,9 @@ const AvailableItems = (props) => {
             name={feast.meetingId}
             onChange={onChange}
           > 
+          <option name="select an item" key="other" >
+            select an item
+          </option>
             {feast.items.filter( item => {
               return !feast.people
                 .map( person => person.item)

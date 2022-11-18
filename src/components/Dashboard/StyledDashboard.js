@@ -11,61 +11,87 @@ const StyledDashboard = styled.div`
     display: inline-block;
     height: 150px;
   }
-  
-  div.meeting {
-    margin: 10px 0;
-  }
+
   
 
-  .styledButton {
-    margin-bottom: 10px;
-  }
+
 
   #cardContainer {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row wrap;
+    justify-content: space-around;
     align-items: center;
+    margin: 5;
   }
 
+  .card {
+    font-family: "Yanone Kaffeesatz", sans-serif;
+    color: black;
+    background-color: #c6b6bf;
+    border: 2px solid #92828d;
+    width: 90vw;
+  }
+  
+  .hidden {
+  display: none !important;
+}
+  .card{
+    width: 90vw;
+  }
 
+  .dashboard-top {
+    display: flex;
+  }
 
-  button {
+  button.card-button {
     font-size: 2rem;
+    margin: 3px 0;
   }
 
   h2 {
-    line-height: 8rem;
+    line-height: 1rem;
   }
   
   .styledButton {
     width: 200px;
   }
+  
+  .card-button
 
-  @media (min-width: 400px){
-    button {
-      font-size: 2.5rem;
-    }
-
-    h2 {
-      margin: none;
-      padding: 50px 0 0 0;
-    }
+  .block-text-spacing {
+    line-height: 2rem;
   }
 
-  
-  @media (min-width: 700px){
-    button {
-      font-size: 2.5rem;
+  .margin-vert-5 {
+    margin:5px 0;
+  }
+
+  div.card {
+    margin: 10px 0;
+  }
+
+  form{
+    display: flex;
+    flex-direction: column;
+  }
+
+    @media (min-width: 500px){
+
+    .card{
+      width: 48vw;
     }
+
+
+  @media (min-width: 700px){
+
+ 
 
     h2 {
       margin: none;
       padding: 50px 0 0 0;
     }
 
-    div.meeting {
-      margin: 10px 0;
-    }
+ 
 
   }
   
@@ -79,10 +105,7 @@ const StyledDashboard = styled.div`
       padding: 50px 0 0 0;
     }
 
-  form{
-    display: inline-block;
-    height: 120px;
-  }
+
 
   }
   
@@ -96,12 +119,15 @@ const StyledDashboard = styled.div`
       padding: 50px 0 0 0;
     }
 
-    div.meeting {
+    div.card {
      margin: 10px 0;
    }
 
   }
   
+.hidden {
+  display: none !important;
+}
 `;
 
 export default StyledDashboard
