@@ -1,4 +1,4 @@
-
+In the version deployed online there is no login functionality
 
 # Getting Started with Create React App
 

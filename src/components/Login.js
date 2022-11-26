@@ -53,16 +53,17 @@ export default function Login () {
       username: loginValues.username,
       password: loginValues.username
     }
-    return axios
-      .post(`${process.env.REACT_APP_API_URI}/auth/login`, user)
-      .then(resp => {
-        console.log({resp})
-        return resp.data;
-      })
-      .catch(err => {
-        console.error({err});
-        setHasFailed(true);
-      });
+    // The LOGIn is disabled in this version for deployment
+    // return axios
+    //   .post(`${process.env.REACT_APP_API_URI}/auth/login`, user)
+    //   .then(resp => {
+    //     console.log({resp})
+    //     return resp.data;
+    //   })
+    //   .catch(err => {
+    //     console.error({err});
+    //     setHasFailed(true);
+    //   });
   };
 
   useEffect(() => {
