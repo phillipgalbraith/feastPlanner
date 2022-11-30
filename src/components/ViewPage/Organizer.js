@@ -1,6 +1,6 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 
-const Organizer = (username) => {
+const Organizer = () => {
   //Destructuring
   // const { user_id } = useContext(createContext());
   // const { feast_id } = useParams();
