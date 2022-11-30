@@ -9,6 +9,8 @@ firebase login
 ## Starting a Firebase Project
 firebase init
 configured to run from a "./build"
+change the build script to "    "build": "CI=false && react-scripts build",
+"
 using "npm run build"
 
 # Getting Started with Create React App
