@@ -1,5 +1,5 @@
 In the version deployed online there is no login functionality
-
+This is the build version of the app
 # Firebase
 Make sure the development machine has firebase tools
 firebase.google.com
@@ -7,6 +7,7 @@ npm install -g firebase-tools
 firebase login
 
 ## Starting a Firebase Project
+Of Course, run the build script. You are deploying the build
 firebase init
 configured to run from a "./build"
 using "npm run build"
