@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, createContext } from "react";
+import React, { useState} from "react";
 
 const Organizer = (username) => {
   //Destructuring
@@ -6,7 +6,6 @@ const Organizer = (username) => {
   // const { feast_id } = useParams();
   //State
   const [guests, setGuests] = useState([]);
-  const [currentItems, setCurrentItems] = useState([]);
   const [itemsToAdd, setItemsToAdd] = useState([]);
   const [formValues, setFormValues] = useState({
     invite: "",
