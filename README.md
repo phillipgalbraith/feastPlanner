@@ -1,5 +1,16 @@
 In the version deployed online there is no login functionality
 
+# Firebase
+Make sure the development machine has firebase tools
+firebase.google.com
+npm install -g firebase-tools
+firebase login
+
+## Starting a Firebase Project
+firebase init
+configured to run from a "./build"
+using "npm run build"
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
