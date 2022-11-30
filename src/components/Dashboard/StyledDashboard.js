@@ -44,6 +44,7 @@ const StyledDashboard = styled.div`
   }
 
   button.card-button {
+    color: black !important;
     font-size: 2rem;
     margin: 3px 0;
   }

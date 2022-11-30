@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useContext, createContext } from "react";
+import React, { useState } from "react";
 
-const Organizer = (username) => {
+const Organizer = () => {
   //Destructuring
   // const { user_id } = useContext(createContext());
   // const { feast_id } = useParams();
   //State
   const [guests, setGuests] = useState([]);
-  const [currentItems, setCurrentItems] = useState([]);
   const [itemsToAdd, setItemsToAdd] = useState([]);
   const [formValues, setFormValues] = useState({
     invite: "",

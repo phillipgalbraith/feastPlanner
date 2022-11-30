@@ -54,16 +54,16 @@ const FeastCard = (props) => {
               {feast.people.find(p => p.username === userLoggedIn).item}
           </p>
         </div>
-        <button className={"card-button " + (isSelecting? "hidden" : "")} onClick={handleSelectClick}>Change Item</button>
+        <button className={"black card-button " + (isSelecting? "hidden" : "")} onClick={handleSelectClick}>Change Item</button>
         
         <form className={"itemSelect " + (isSelecting? "" : "hidden")} name={feast.meetingId}>
-          <button className="card-button" name={feast.meetingId} onClick={handleSelectSubmit}>Change Your Item</button>          
+          <button className="black card-button" name={feast.meetingId} onClick={handleSelectSubmit}>Change Your Item</button>          
           <AvailableItems feast={feast}  onChange={selectUserItem}/>
         </form>
   
         <button 
           name={feast.meetingId} 
-          className="card-button" 
+          className="black card-button" 
           onClick={detailsClick}>
           <span className={ detailsClass ? "" : "hidden"} > ∇ Hide </span>
           Details
@@ -73,7 +73,7 @@ const FeastCard = (props) => {
           <GuestList people={feast.people}  />
         </div>
 
-        <button name={feast.meetingId} className="card-button" onClick={changeConfirmed}>
+        <button name={feast.meetingId} className="black card-button" onClick={changeConfirmed}>
           {feast.people.find( p => p.username === userLoggedIn).confirmed? "Not Going?" : "RSVP Now!"}
         </button>  
         <h5>
