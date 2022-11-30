@@ -99,7 +99,7 @@ const Dashboard = () => {
        
       </h1>
       <Link to="/feast/create">
-          <button className="card-button"> + Plan Feast</button>
+          <button className="card-button black"> + Plan Feast</button>
       </Link>
     
       

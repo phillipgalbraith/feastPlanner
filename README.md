@@ -10,6 +10,8 @@ firebase login
 Of Course, run the build script. You are deploying the build
 firebase init
 configured to run from a "./build"
+change the build script to "    "build": "CI=false && react-scripts build",
+"
 using "npm run build"
 
 # Getting Started with Create React App
